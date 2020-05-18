@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+
+<div class='container'>
+	<div class="jumbotron bg-white text-center">
+  <h1 class="display-4">Its MyBlog</h1>
+  <p class="lead">A Coding Blog!</p>
+  <hr class="my-4">
+</div>
+
+<div class="row">
+{% for post in posts %}
+  <div class="col-sm-4 my-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.message|truncatewords:30}}</p>
+        <a href="/blog/{{post.slug}}" class="btn btn-danger">Read More</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
